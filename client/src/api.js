@@ -19,6 +19,9 @@ export const signup = (username, email, password) => {
 };
 
 export const fetchUsers = () => {
-    return axiosInstance.get('/user'); // Ruta para obtener todos los usuarios
-  };
+  return axiosInstance.get('/user'); // Ruta para obtener todos los usuarios
+};
 
+export const requestPasswordReset = (data) => {
+  return api.post('/user/request-password-reset', data);
+};

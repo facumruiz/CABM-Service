@@ -83,7 +83,7 @@ const requestPasswordReset = async (req, res) => {
         await user.save();
 
         // Enviar correo de recuperación
-        const resetUrl = `http://localhost:${process.env.PORT}/user/reset-password/${resetToken}`;
+        const resetUrl = `${process.env.BASE_URL}/reset-password/${resetToken}`;
         await transporter.sendMail({
             from: '"MiApp" <miapp@example.com>',
             to: user.email,
