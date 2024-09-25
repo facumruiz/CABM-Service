@@ -1,7 +1,8 @@
+// src/utils/axiosInstance.js
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:5050', // Cambia esto por la URL de tu API
+  baseURL: process.env.REACT_APP_API_URL, // Usa la variable de entorno con el prefijo REACT_APP_
 });
 
 // Interceptor para agregar el token en el header si está disponible
