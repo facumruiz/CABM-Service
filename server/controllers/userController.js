@@ -29,7 +29,7 @@ const createUser = async (req, res) => {
 
 
         // Enviar correo de confirmación
-        const confirmationUrl = `http://localhost:${process.env.PORT}/user/confirm/${emailToken}`;
+        const confirmationUrl = `${process.env.BASE_URL}/user/confirm/${emailToken}`;
         await transporter.sendMail({
             from: '"MiApp" <miapp@example.com>',
             to: newUser.email,
