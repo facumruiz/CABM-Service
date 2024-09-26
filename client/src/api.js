@@ -23,6 +23,15 @@ export const fetchUsers = () => {
   return axiosInstance.get('/user'); // Ruta para obtener todos los usuarios
 };
 
+export const deleteUser = (id) => {
+  return axios.delete(`/api/user/${id}`);
+};
+
+export const updateUserRole = (_id, role) => {
+  return api.patch(`/user/${_id}`, { role });
+};
+
+
 export const requestPasswordReset = (data) => {
   return api.post('/user/request-password-reset', data);
 };
