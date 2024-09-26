@@ -20,7 +20,7 @@ const Signup = () => {
       const response = await signup(username, email, password);
       console.log('Registro exitoso', response.data);
       // Redirigir al usuario a otra página o mostrar un mensaje de éxito
-      navigate('/welcome'); // Cambia '/welcome' a la ruta deseada
+      navigate('/');
     } catch (error) {
       setError('Error al crear el usuario: ' + (error.response?.data?.message || error.message));
       console.error('Error al crear el usuario', error);

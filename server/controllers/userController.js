@@ -29,7 +29,7 @@ const createUser = async (req, res) => {
 
 
         // Enviar correo de confirmación
-        const confirmationUrl = `${process.env.BASE_URL}/user/confirm/${emailToken}`;
+        const confirmationUrl = `${process.env.BACKEND_URL}/user/confirm/${emailToken}`;
         await transporter.sendMail({
             from: '"MiApp" <miapp@example.com>',
             to: newUser.email,
@@ -83,7 +83,7 @@ const requestPasswordReset = async (req, res) => {
         await user.save();
 
         // Enviar correo de recuperación
-        const resetUrl = `${process.env.BASE_URL}/reset-password/${resetToken}`;
+        const resetUrl = `${process.env.FRONT_URL}/reset-password/${resetToken}`;
         await transporter.sendMail({
             from: '"MiApp" <miapp@example.com>',
             to: user.email,
