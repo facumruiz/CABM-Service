@@ -1,4 +1,5 @@
 import express from 'express';
+import { verifyRole } from '../../middleware/authMiddleware.js';
 import { createItemMenu, getAllItemsMenu, getItemMenuById, updateItemMenu, deleteItemMenu } from '../../controllers/cabm/menuItemController.js';
 
 const router = express.Router();
@@ -26,7 +27,7 @@ const router = express.Router();
  *               items:
  *                 $ref: '#/components/schemas/MenuItem'
  */
- router.get('/', getAllItemsMenu);
+ router.get('/', (req, res, next) => req.app.verifyToken(req, res, next), verifyRole(['admin']), getAllItemsMenu);
 
  /**
   * @swagger
@@ -51,7 +52,7 @@ const router = express.Router();
   *       404:
   *         description: Ítem del menú no encontrado
   */
- router.get('/:id', getItemMenuById);
+ router.get('/:id',(req, res, next) => req.app.verifyToken(req, res, next), verifyRole(['admin']), getItemMenuById);
  
  /**
   * @swagger
@@ -69,7 +70,7 @@ const router = express.Router();
   *       201:
   *         description: Ítem del menú creado exitosamente
   */
- router.post('/', createItemMenu);
+ router.post('/', (req, res, next) => req.app.verifyToken(req, res, next), verifyRole(['admin']), createItemMenu);
  
  /**
   * @swagger
@@ -94,7 +95,7 @@ const router = express.Router();
   *       200:
   *         description: Ítem del menú actualizado
   */
- router.patch('/:id', updateItemMenu);
+ router.patch('/:id', (req, res, next) => req.app.verifyToken(req, res, next), verifyRole(['admin']), updateItemMenu);
  
  /**
   * @swagger
@@ -115,7 +116,7 @@ const router = express.Router();
   *       404:
   *         description: Ítem del menú no encontrado
   */
- router.delete('/:id', deleteItemMenu);
+ router.delete('/:id', (req, res, next) => req.app.verifyToken(req, res, next), verifyRole(['admin']), deleteItemMenu);
  
  export default router;
  

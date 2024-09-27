@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { fetchUsers, deleteUser, updateUserRole } from '../../api';
 import { Button, Modal, Form } from 'react-bootstrap';
 import { FaTrash, FaPencilAlt } from 'react-icons/fa';  // Importa los íconos
+import BebidasTable from './BebidasTable';
+import MenuItemsTable from './MenuItemsTable';
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
@@ -123,6 +125,10 @@ const UserList = () => {
           <Button variant="primary" onClick={handleRoleChange}>Cambiar Rol</Button>
         </Modal.Footer>
       </Modal>
+
+      <BebidasTable />
+
+      <MenuItemsTable />
     </div>
   );
 };
