@@ -31,7 +31,7 @@ export const fetchUsers = () => {
 };
 
 export const deleteUser = (id) => {
-  return api.delete(`/api/user/${id}`);
+  return api.delete(`/user/${id}`);
 };
 
 export const updateUserRole = (_id, role) => {
